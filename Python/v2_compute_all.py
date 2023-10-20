@@ -5,7 +5,6 @@ import numpy as np
 import os
 import time
 
-# Commentaire test 
 Path_save = r'/home/jeanrop/scratch/save_h5_full'
 Path_load = r'/home/jeanrop/scratch/10_job_100_simu_2'
 Path_ini  = os.path.join(Path_load, str(1), str(1))
