@@ -6,7 +6,7 @@ import os
 import time
 
 
-Path_save = r'/home/jeanrop/scratch/save_h5'
+Path_save = r'/home/jeanrop/Documents/data/h5_job'
 Path_load = r'/home/jeanrop/scratch/10_job_100_simu_2'
 Path_ini  = os.path.join(Path_load, str(1), str(1))
 
@@ -31,8 +31,7 @@ idx_job = 0
 for job_folder in job_folders:
     idx_job += 1
     print("Folder job number ", str(idx_job), " out of ", str(N_job))
-    os.mkdir(os.path.join(Path_save, str(idx_job)))
-    Path_h5 = os.path.join(Path_save, str(idx_job), 'simu_100.h5')
+    Path_h5 = os.path.join(Path_save, str(job_folder) + '_simu_100.h5')
     with h5py.File(Path_h5, "w", libver='latest') as hf:
         for name in var_names:
             data = loadmat(os.path.join(Path_ini, name + '.mat'))[name]
@@ -61,7 +60,7 @@ for job_folder in job_folders:
     Path_folder = os.path.join(Path_load, job_folder)
     simu_folders = [folder for folder in os.listdir(Path_folder) if os.path.isdir(os.path.join(Path_folder, folder))]
     idx_simu = 0
-    Path_h5 = os.path.join(Path_save, str(idx_job), 'simu_100.h5') 
+    Path_h5 = os.path.join(Path_save, str(job_folder) + '_simu_100.h5')
     with h5py.File(Path_h5, "a", libver='latest') as hf:
         for simu_folder in simu_folders:
             idx_simu += 1
