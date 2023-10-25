@@ -6,6 +6,9 @@
 #SBATCH --job-name=crelu_high_speckle_randn
 #SBATCH --output=out-%x-%j.out
 
+# Work environnement
+cd ../python
+
 # Display date
 echo "DATE: $(date)"
 
